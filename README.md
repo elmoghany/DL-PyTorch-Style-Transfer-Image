@@ -1,4 +1,4 @@
-# PyTorch Style Transfer for image and video generation 
+# PyTorch Style Transfer for Image and Video Generation 
 
 via a content image, style image and random noise of target image which will be the output image
 
