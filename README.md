@@ -1,6 +1,16 @@
-# PyTorch Style Transfer for image and video generation with a content image, style image and random noise of target image which will be the output image
+# PyTorch Style Transfer for image and video generation 
 
+via a content image, style image and random noise of target image which will be the output image
+
+### image demo
 ![hidden text](/images/output.png)
+
+### Video Demo
+
+<video src="video/output.mp4" controls="controls" style="max-width: 100%; height: auto;">
+    video demo
+</video>
+
 ![hidden text](/video/output.mp4)
 
 # Illustration
