@@ -1,6 +1,7 @@
 # PyTorch Style Transfer for image and video generation with a content image, style image and random noise of target image which will be the output image
 
 ![hidden text](/images/output.png)
+![hidden text](/video/output.mp4)
 
 # Illustration
 1) Training: We train a CNN model on cifar input images
