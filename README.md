@@ -6,12 +6,8 @@ via a content image, style image and random noise of target image which will be 
 ![hidden text](/images/output.png)
 
 ### Video Demo
+![hidden text](/video/output.gif)
 
-<video src="video/output.mp4" controls="controls" style="max-width: 100%; height: auto;">
-    video demo
-</video>
-
-![hidden text](/video/output.mp4)
 
 # Illustration
 1) Training: We train a CNN model on cifar input images
