@@ -1,41 +1,35 @@
-# PyTorch Style Transfer for image and video generation 
+# PyTorch Style Transfer for Image and Video Generation 
 
 via a content image, style image and random noise of target image which will be the output image
 
-### image demo
+### Image demo
 ![hidden text](/images/output.png)
 
 ### Video Demo
+![hidden text](/video/output.gif)
 
-<video src="video/output.mp4" controls="controls" style="max-width: 100%; height: auto;">
-    video demo
-</video>
-
-![hidden text](/video/output.mp4)
 
 # Illustration
-1) Training: We train a CNN model on cifar input images
-2) Input features: 3*28*28 (RGB channels, width, heigth)
-3) Output targets: ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+1) Use VGG pretrained model
+2) Input Content Image
+3) Input Style Image
+4) Output Target Image from random noise start point
 
 # Model & Architecture
-1) CNN DL Model
-2) 3 convolution layers + batchnorm + leaky_relu
-3) CNN img size 28 -> 13 ->  5  -> 1
-4) CNN Kernels  1  -> 64 -> 128 -> 256
-5) Linear layer + leaky_relu + dropout 0.5
-6) inChans  = 1 # RGB => should be changed to 1
-7) outChans = 64 # of feature maps / kernels
-8) krnSize  = 3x3 # odd number
-9) padding  = 0 # No padding
-10) stride   = 1 # used stride
-11) batchnorm = 1
-12) Use of CrossEntropyLoss for classification of 10 targets
-13) Minibatches = 32
-14) Adam Optimizer with weight decay of 1e-4
-
-# Results
-1) Accuracy: Got 99% train accuracy and 91% test accuracy for the prediction of the fashion of the dataset "overfit with 8%"
-    
+1) VGG19 Pre-trained model
+2) modelLayersFeatureMaps function to extract the features in each convolution layer
+3) gram_matrix function to calculate the gram matrix of the style at each convolution layer
+4) contentLayers       = [ 'ConvLayer_4' ]
+5) weightContentLayers = 1 #alpha
+6) styleLayersWeight = {
+    'ConvLayer_1': 1,
+    'ConvLayer_2': 0.8,
+    'ConvLayer_3': 0.5,
+    'ConvLayer_4': 0.3,
+    'ConvLayer_5': 0.1
+5) styleScaling    = 1e6
+6) Recommended: epochs = 10,000
+7) Using VideoWriter to create the video out of frames saved during creation of the target image
+     
 # Conclusions:
-1) Need to finetune the metaparameters and see what can increase the results of the test accuracy
+1) There are many parameters to play with and to compare in order to get better results
